@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        p{margin:0}
+        #page{
+            height:40px;
+            padding:20px 0px;
+        }
+        #page a{
+            display:block;
+            float:left;
+            margin-right:10px;
+            padding:2px 12px;
+            height:24px;
+            border:1px #cccccc solid;
+            background:#fff;
+            text-decoration:none;
+            color:#808080;
+            font-size:12px;
+            line-height:24px;
+        }
+        #page a:hover{
+            color:#077ee3;
+            border:1px #077ee3 solid;
+        }
+        #page a.cur{
+            border:none;
+            background:#077ee3;
+            color:#fff;
+        }
+        #page p{
+            float:left;
+            padding:2px 12px;
+            font-size:12px;
+            height:24px;
+            line-height:24px;
+            color:#bbb;
+            border:1px #ccc solid;
+            background:#fcfcfc;
+            margin-right:8px;
+
+        }
+        #page p.pageRemark{
+            border-style:none;
+            background:none;
+            margin-right:0px;
+            padding:4px 0px;
+            color:#666;
+        }
+        #page p.pageRemark b{
+            color:red;
+        }
+        #page p.pageEllipsis{
+            border-style:none;
+            background:none;
+            padding:4px 0px;
+            color:#808080;
+        }
+        .dates li {font-size: 14px;margin:20px 0}
+        .dates li span{float:right}
+    </style>
+</head>
+<body>
+<!-------------------显示页面，显示处理完成的数据---------------------->
+<a href="add.html">添加管理员</a>
+<table border="1px" cellpadding="0" cellspacing="0">
+    <tr>
+        <th>ID</th>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>邮箱</th>
+        <th>添加时间</th>
+        <th>最后登录时间</th>
+        <th>最后登录IP</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach ($rows as $key=>$row){?>
+    <tr>
+        <td><?=$row['id']?></td>
+        <td><?php echo $row['username']?></td>
+        <td><?php echo $row['password']?></td>
+        <td><?php echo $row['email']?></td>
+        <td><?php echo date("Y-m-d H:i:s",$row['add_time'])?></td>
+        <td><?php echo $row['last_login_time']?></td>
+        <td><?php echo $row['last_login_ip']?></td>
+        <td>
+            <a href="index.php?p=Admin&c=Admin&a=delete&id=<?=$row['id']?>">删除</a>
+        </td>
+    </tr>
+    <?php };?>
+</table>
+<div class="showPage">
+    <?=$page?>
+</div>
+
+<!-------------------显示页面，显示处理完成的数据---------------------->
+</body>
+</html>
+
+<?php
+    echo $name."<br/>";
+     echo $age;
+?>
